@@ -17,7 +17,7 @@ public class JsonUtils {
 
             JSONObject name = jsonObject.getJSONObject("name");
 
-            String mainName = name.getString("mainName");
+            String mainName = name.optString("mainName");
             sandwich.setMainName(mainName);
 
             JSONArray otherNames = name.getJSONArray("alsoKnownAs");
@@ -28,13 +28,13 @@ public class JsonUtils {
             }
             sandwich.setAlsoKnownAs(alsoKnownAsList);
 
-            String placeOfOrigin = jsonObject.getString("placeOfOrigin");
+            String placeOfOrigin = jsonObject.optString("placeOfOrigin");
             sandwich.setPlaceOfOrigin(placeOfOrigin);
 
-            String description = jsonObject.getString("description");
+            String description = jsonObject.optString("description");
             sandwich.setDescription(description);
 
-            String imageString = jsonObject.getString("image");
+            String imageString = jsonObject.optString("image");
             sandwich.setImage(imageString);
 
             JSONArray ingredientsArray = jsonObject.getJSONArray("ingredients");
